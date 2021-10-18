@@ -1,0 +1,44 @@
+﻿@model IEnumerable<HorseClub.Models.Login>
+
+@{
+    ViewData["Name"] = "Index";
+}
+
+@{ Layout = "_Layout"; }
+<br />
+<p>
+    <a asp-action="Create" type="button" class="btn btn-info">Register User</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LoginUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Breed in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelBreed => Breed.LoginUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelBreed => Breed.Password)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Breed.Id" type="button" class="btn btn-info">Edit</a>
+                    <a asp-action="Details" asp-route-id="@Breed.Id" type="button" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@Breed.Id" type="button" class="btn btn-info">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-controller="Login" asp-action="Zone" type="button" class="btn btn-info">Back To Home</a>
+</div>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HorseClub.Models.Breeds>
+
+@{ ViewData["Name"] = "Home"; }
+@{ Layout = "_Layout2"; }
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Breed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Breed in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelBreed => Breed.Breed)
+    </td>
+    <td>
+        @Html.DisplayFor(modelBreed => Breed.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelBreed => Breed.Category)
+    </td>
+    <td>
+        @Html.DisplayFor(modelBreed => Breed.Price)
+    </td>
+    <td>
+        <a asp-action="AddBreed" asp-route-id="@Breed.Id" class="btn btn-info">Get Breed</a>
+    </td>
+</tr>}
+    </tbody>
+</table>

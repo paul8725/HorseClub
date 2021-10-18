@@ -1,0 +1,39 @@
+﻿@model HorseClub.Models.Breeds
+
+@{ ViewData["Name"] = "Edit"; }
+@{ Layout = "_Layout2"; }
+<br />
+<h4>Edit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for=" Breed" class="control-label"></label>
+                <input asp-for=" Breed" class="form-control border" />
+                <span asp-validation-for=" Breed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=" Name" class="control-label"></label>
+                <input asp-for=" Name" class="form-control border" />
+                <span asp-validation-for=" Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=" Category" class="control-label"></label>
+                <input asp-for=" Category" class="form-control border" />
+                <span asp-validation-for=" Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=" Price" class="control-label"></label>
+                <input asp-for=" Price" class="form-control border" />
+                <span asp-validation-for=" Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-info" />
+                <a asp-action="Index" type="button" class="btn btn-info">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

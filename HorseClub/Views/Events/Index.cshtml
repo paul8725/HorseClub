@@ -1,0 +1,55 @@
+﻿@model IEnumerable<HorseClub.Models.Events>
+
+@{
+    ViewData["Name"] = "Events";
+}
+@{ Layout = "_Layout"; }
+<br />
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Add Event</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventGroup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Breed in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelBreed => Breed.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelBreed => Breed.EventGroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelBreed => Breed.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelBreed => Breed.Message)
+                </td>
+                <td>
+                    <a asp-action="Edit" type="button" class="btn btn-info" asp-route-id="@Breed.Id">Edit</a>
+                    <a asp-action="Details" type="button" class="btn btn-info" asp-route-id="@Breed.Id">Details</a>
+                    <a asp-action="Delete" type="button" class="btn btn-info" asp-route-id="@Breed.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
